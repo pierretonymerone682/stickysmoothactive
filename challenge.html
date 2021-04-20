@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class="smooth-scroll">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="stylesheet" type="text/css" href="challenge.css"/>
+	</head>
+<body>
+
+<div id="menubar">
+	<a href="#section-1">Go to section 1</a>
+	<a href="#section-2">Go to section 2</a>
+	<a href="#section-3">Go to section 3</a>
+    <a href="#section-4">Go to section 4</a>
+	<a href="#section-5">Go to section 5</a>
+	<a href="#section-6">Go to section 6</a>
+</div>
+
+<div id="section-1" class="section">Section 1</div>
+<div id="section-2" class="section">Section 2</div>
+<div id="section-3" class="section">Section 3</div>
+<div id="section-4" class="section">Section 4</div>
+<div id="section-5" class="section">Section 5</div>
+<div id="section-6" class="section">Section 6</div>
+
+<script>
+          
+	let mainNavLinks = document.querySelectorAll("div a");
+	
+	window.addEventListener("scroll", event => {
+	  
+		let fromTop = window.scrollY+5;
+	
+	  mainNavLinks.forEach(link => {
+		let section = document.querySelector(link.hash);
+	
+		if (
+		  section.offsetTop <= fromTop &&
+		  section.offsetTop + section.offsetHeight > fromTop
+		) {
+		  link.classList.add("current");
+		} else {
+		  link.classList.remove("current");
+		}
+	  });
+	});
+</script>
+
+</body>
+</html>
